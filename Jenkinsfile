@@ -26,7 +26,7 @@ pipeline {
                     
                     def jsonSlurper = new JsonSlurper()
                     
-                    def resultJson = jsonSlurper.parseText(featuresText)
+                    def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[ ]/, ''))
                     
                     resultJson.each {
                         print “KEY=${it.key}” 
