@@ -47,6 +47,20 @@ pipeline {
                 }
             }
         }
+        
+        stage('Stage 3') {
+            
+            steps {
+                publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'coverage',
+                    reportFiles: 'index.html',
+                    reportName: "Sample Report"
+                ])
+            }
+        }
     }
 }
 
