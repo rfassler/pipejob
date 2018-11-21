@@ -27,7 +27,8 @@ pipeline {
                     def resultJson = parseJsonArray(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     resultJson.each {
-                        println “NAME=${it.name}, PATH=${it.path}” 
+                        println it.toString()
+                        //println “NAME=${it.name}, PATH=${it.path}” 
                     }
                     
                     build job: "my_pipeline_sub_job"
