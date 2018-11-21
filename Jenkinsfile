@@ -45,8 +45,8 @@ def parseJsonArray(String json) {
     def object = new JsonSlurper().parseText(json)
     
     println "XXXXXX11"
-    for (int i=0; i<object.length; i++) {
-        if(object instanceof groovy.json.internal.LazyMap) {    
+    for (i=0; i<object.length; i++) {
+        if(object[i] instanceof groovy.json.internal.LazyMap) {    
             println "XXXXXX12"
             object[i] = new HashMap<>(object[i])
         }
