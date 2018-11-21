@@ -6,13 +6,13 @@ pipeline {
 
     stages{
 
-        stage('Stage 1'){
+        stage('Build'){
             steps {
                 bat 'echo Hello World'
             }
         }
         
-        stage('Stage 2'){
+        stage('Feature Testing'){
             steps {
                 script {
                     
@@ -35,7 +35,7 @@ pipeline {
                         
                         jobs["Stage job_${name}"] = {
 
-                            stage ("Stage job_${name}") { 
+                            stage ("Test Feature: ${name}") { 
                             
                                 build job: "my_pipeline_sub_job", parameters: [[$class: 'StringParameterValue', name: 'job_name', value: "${name}"]]
 
@@ -48,7 +48,7 @@ pipeline {
             }
         }
         
-        stage('Stage 3') {
+        stage('Publish Report') {
             
             steps {
                 publishHTML (target: [
@@ -57,7 +57,7 @@ pipeline {
                     keepAll: true,
                     reportDir: '.',
                     reportFiles: 'index.html',
-                    reportName: "Sample Report"
+                    reportName: "Run Report"
                 ])
             }
         }
