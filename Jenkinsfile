@@ -6,5 +6,18 @@ pipeline {
                 bat 'echo Hello World'
             }
         }
+        
+        stage('Stage 2'){
+            steps {
+                script {
+                    
+                    for (String i : readFile('features.json').split("\r?\n")) {
+                         println i
+                    }
+                    
+                    
+                }
+            }
+        }
     }
 }
