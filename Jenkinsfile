@@ -40,7 +40,9 @@ pipeline {
 
 def parseJsonText(String json) {
     def object = new JsonSlurper().parseText(json)
+    println "XXXXXX1"
     if(object instanceof groovy.json.internal.LazyMap) {
+        println "XXXXXX2"
         return new HashMap<>(object)
     }
     return object
