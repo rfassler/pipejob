@@ -24,13 +24,13 @@ pipeline {
                          println i
                     }
                     
-                    def jsonSlurper = new JsonSlurper()
+                    // def jsonSlurper = new JsonSlurper()
                     
-                    def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[ ]/, ''))
+                    // def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[ ]/, ''))
                     
-                    resultJson.each {
-                        print “KEY=${it.key}” 
-                    }
+                    // resultJson.each {
+                        // print “KEY=${it.key}” 
+                    // }
                     
                 }
             }
