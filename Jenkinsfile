@@ -37,7 +37,7 @@ pipeline {
 
                             stage ("Stage job_${name}") { 
                             
-                                build job: "my_pipeline_sub_job"
+                                build job: "my_pipeline_sub_job", parameters: [[name: 'job_name', value: name]]
 
                             }
                         }
