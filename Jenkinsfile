@@ -57,7 +57,16 @@ pipeline {
                     keepAll: true,
                     reportDir: '.',
                     reportFiles: 'index.html',
-                    reportName: "Run Report"
+                    reportName: "Feature X Report"
+                ])
+                
+                publishHTML (target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: '.',
+                    reportFiles: 'index.html',
+                    reportName: "Feature Y Report"
                 ])
             }
         }
