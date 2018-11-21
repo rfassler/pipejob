@@ -29,7 +29,8 @@ pipeline {
                     def jobs = [:]
                     
                     resultJson.each {
-                        println it.toString()
+                        //println it.toString()
+                        
                         def name = it['name']
                         
                         jobs["Stage job_${name}"] = {
@@ -37,7 +38,7 @@ pipeline {
                             stage ("Stage job_${name}") { 
                             
                                 build job: "my_pipeline_sub_job"
-                                
+
                             }
                         }
                         
