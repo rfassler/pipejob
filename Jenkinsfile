@@ -28,10 +28,13 @@ pipeline {
                     
                     resultJson.each {
                         println it.toString()
-                        //println “NAME=${it.name}, PATH=${it.path}” 
+                        
+                        stage ("branch_1") { 
+                        
+                            build job: "my_pipeline_sub_job"
+                            
+                        }
                     }
-                    
-                    build job: "my_pipeline_sub_job"
                 }
             }
         }
