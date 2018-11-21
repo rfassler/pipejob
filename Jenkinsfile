@@ -26,15 +26,22 @@ pipeline {
                     
                     def resultJson = parseJsonArray(featuresText.replaceAll(/[\r\n]/, ''))
                     
+                    def jobs = [:]
+                    
                     resultJson.each {
                         println it.toString()
-                        
                         def name = it['name']
-                        stage ("branch_${name}") { 
                         
-                            build job: "my_pipeline_sub_job"
+                        jobs["Stage job_${name}"] = {
+
+                            stage ("Stage job_${name}") { 
                             
+                                build job: "my_pipeline_sub_job"
+                                
+                            }
                         }
+                        
+                        parallel jobs
                     }
                 }
             }
