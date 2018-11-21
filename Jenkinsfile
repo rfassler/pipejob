@@ -26,11 +26,11 @@ pipeline {
                     
                     def jsonSlurper = new JsonSlurper()
                     
-                    // def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[ ]/, ''))
+                    def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[\r\n]/, ''))
                     
-                    // resultJson.each {
-                        // print “KEY=${it.key}” 
-                    // }
+                    resultJson.each {
+                        print “KEY=${it.key}” 
+                    }
                     
                 }
             }
