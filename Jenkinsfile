@@ -11,7 +11,11 @@ pipeline {
             steps {
                 script {
                     
-                    for (String i : readFile('features.json').split("\r?\n")) {
+                    def featuresText = readFile('features.json')
+                    
+                    println "Features=${featuresText}"
+                    
+                    for (String i : featuresText.split("\r?\n")) {
                          println i
                     }
                     
