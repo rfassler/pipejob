@@ -16,6 +16,15 @@ pipeline {
             steps {
                 script {
                     
+                    @NonCPS
+                    def parseJsonText(String json) {
+                        def object = new JsonSlurper().parseText(json)
+                        if(object instanceof groovy.json.internal.LazyMap) {
+                            return new HashMap<>(object)
+                        }
+                        return object
+                    }
+                    
                     def featuresText = readFile('features.json')
                     
                     println "Features=${featuresText}"
@@ -26,7 +35,7 @@ pipeline {
                     
                     def jsonSlurper = new JsonSlurper()
                     
-                    def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[\r\n]/, ''))
+                    def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     // resultJson.each {
                         // println “KEY=${it.key}” 
