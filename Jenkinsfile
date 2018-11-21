@@ -24,8 +24,6 @@ pipeline {
                          println i
                     }
                     
-                    def jsonSlurper = new JsonSlurper()
-                    
                     def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     // resultJson.each {
