@@ -32,10 +32,6 @@ pipeline {
                         print “KEY=${it.key}” 
                     }
                     
-                    
-                    println "XXXXX1"
-                    def projects = readJSON file: "${env.WORKSPACE}\\features.json"
-                    println "XXXXX2"
                 }
             }
         }
