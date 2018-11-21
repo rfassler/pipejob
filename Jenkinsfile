@@ -24,7 +24,7 @@ pipeline {
                          println i
                     }
                     
-                    def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
+                    //def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     // resultJson.each {
                         // println “KEY=${it.key}” 
@@ -38,7 +38,6 @@ pipeline {
     }
 }
 
-@NonCPS
 def parseJsonText(String json) {
     def object = new JsonSlurper().parseText(json)
     if(object instanceof groovy.json.internal.LazyMap) {
