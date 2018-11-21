@@ -24,7 +24,7 @@ pipeline {
                          println i
                     }
                     
-                    // def jsonSlurper = new JsonSlurper()
+                    def jsonSlurper = new JsonSlurper()
                     
                     // def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[ ]/, ''))
                     
