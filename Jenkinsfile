@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     
-                    def featuresText = readFile('features.json', 'utf-8')
+                    def featuresText = readFile file:'features.json' encoding:'utf-8'
                     
                     println "Features=${featuresText}"
                     
