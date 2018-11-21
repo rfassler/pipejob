@@ -32,6 +32,8 @@ pipeline {
                         // println “KEY=${it.key}” 
                     // }
                     
+                    
+                    build job: "my_pipeline_sub_job"
                 }
             }
         }
