@@ -29,7 +29,8 @@ pipeline {
                     resultJson.each {
                         println it.toString()
                         
-                        stage ("branch_1") { 
+                        def name = it['name']
+                        stage ("branch_${name}") { 
                         
                             build job: "my_pipeline_sub_job"
                             
