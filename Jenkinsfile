@@ -29,7 +29,7 @@ pipeline {
                     def resultJson = jsonSlurper.parseText(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     resultJson.each {
-                        print “KEY=${it.key}” 
+                        println “KEY=${it.key}” 
                     }
                     
                 }
