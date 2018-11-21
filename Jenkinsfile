@@ -19,7 +19,13 @@ pipeline {
                          println i
                     }
                     
+                    def jsonSlurper = new JsonSlurper()
                     
+                    def resultJson = jsonSlurper.parseText(featuresText)
+                    
+                    resultJson.each {
+                        print “KEY=${it.key}” 
+                    }
                 }
             }
         }
