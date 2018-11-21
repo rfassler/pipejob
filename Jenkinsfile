@@ -26,6 +26,8 @@ pipeline {
                     
                     def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
                     
+                    println "ClassXXX: " + resultJson.getClass().toString()
+                    
                     // resultJson.each {
                         // println “KEY=${it.key}” 
                     // }
