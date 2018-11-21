@@ -24,7 +24,7 @@ pipeline {
                          println i
                     }
                     
-                    //def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
+                    def resultJson = parseJsonText(featuresText.replaceAll(/[\r\n]/, ''))
                     
                     // resultJson.each {
                         // println “KEY=${it.key}” 
